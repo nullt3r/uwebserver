@@ -1,21 +1,62 @@
 <!DOCTYPE html>
 <html>
-<body>
-<h1>Raspberry Pi Pico LED Control</h1>
-<button onclick="changeLED(1)">Turn On</button>
-<button onclick="changeLED(0)">Turn Off</button>
+<head>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
 
-<script>
-function changeLED(state) {
-    fetch('/api/led', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({led: state}),
-    }).then(response => response.json()).then(data => console.log(data));
-}
-</script>
+        h1 {
+            color: #333;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 100px);
+        }
+
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Raspberry Pi Pico LED Control</h1>
+    <div class="btn-container">
+        <button onclick="changeLED(1)">Turn On</button>
+        <button onclick="changeLED(0)">Turn Off</button>
+    </div>
+
+    <script>
+    function changeLED(state) {
+        fetch('/api/led', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({led: state}),
+        }).then(response => response.json()).then(data => console.log(data));
+    }
+    </script>
 
 </body>
 </html>
