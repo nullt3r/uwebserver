@@ -6,7 +6,7 @@ The `UWebServer` is a minimalistic web server for handling basic HTTP requests, 
 
 ## Getting Started
 
-Before you start, save the uwebserver.py in `lib` directory on your Pico. Then, import the necessary modules and the `UWebServer` class.
+Before you start, save the uwebserver.py in `lib` directory on your Pico. Then, import the necessary modules and the `UWebServer` class. Make sure to also install picozero library.
 
 ```python
 import network
