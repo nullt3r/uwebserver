@@ -1,10 +1,10 @@
 import network
 import socket
-import gc
+# import gc
 import ujson
 import os
 
-gc.collect()
+# gc.collect()
 
 class UWebServer:
     def __init__(self, port=80, request_size_limit=1024, static_dir=None):
@@ -24,15 +24,15 @@ class UWebServer:
     def start(self):
         while True:
             try:
-                if gc.mem_free() < 102000:
-                    gc.collect()
+                # if gc.mem_free() < 102000:
+                #    gc.collect()
 
                 conn, addr = self.s.accept()
                 print('[INFO] Got a connection from %s' % str(addr))
 
-                conn.settimeout(3.0)
+                # conn.settimeout(3.0)
                 request = conn.recv(self.request_size_limit)
-                conn.settimeout(None)
+                # conn.settimeout(None)
                 request = str(request, 'utf-8')
 
                 response_body, content_type, response_code = self.handle_request(request)
