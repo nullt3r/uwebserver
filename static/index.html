@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Raspberry Pi Pico LED Control</h1>
+<button onclick="changeLED(1)">Turn On</button>
+<button onclick="changeLED(0)">Turn Off</button>
+
+<script>
+function changeLED(state) {
+    fetch('/api/led', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({led: state}),
+    }).then(response => response.json()).then(data => console.log(data));
+}
+</script>
+
+</body>
+</html>
