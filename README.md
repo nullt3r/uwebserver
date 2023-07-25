@@ -2,6 +2,8 @@
 
 The `UWebServer` is a minimalistic web server for handling basic HTTP requests, implemented in MicroPython. Currently it handles GET, HEAD, OPTIONS and POST requests. This project was made to work with Raspberry Pi Pico W but should work with any similar device that supports MicroPython.
 
+<img src="readme_img/index.png" alt="drawing" width=1000/>
+
 ## Getting Started
 
 Before you start, save the uwebserver.py in `lib` directory on your Pico. Then, import the necessary modules and the `UWebServer` class.
