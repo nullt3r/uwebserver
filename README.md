@@ -62,4 +62,5 @@ See `example.py` that allows you to control the internal LED via browser.
 * https://projects.raspberrypi.org/en/projects/get-started-pico-w
 
 ## Similar projects
-* Very fast & lightweight web server written in C++ - https://github.com/krzmaz/pico-w-webserver-example
+* Fast & lightweight web server written in C++ - https://github.com/krzmaz/pico-w-webserver-example
+* An HTTP server for the Raspberry Pi PicoW microcontroller, built on the Pico C SDK and using the LWIP raw TCP API. The server optionally supports TLS - https://gitlab.com/slimhazard/picow_http
