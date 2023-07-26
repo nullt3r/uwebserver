@@ -11,7 +11,6 @@ Before you start, save the uwebserver.py in `lib` directory on your Pico. Then, 
 ```python
 import network
 import socket
-import gc
 import ujson
 import os
 from uwebserver import UWebServer
