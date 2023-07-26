@@ -58,5 +58,8 @@ For example, if static_dir is set to 'static' and there is a file 'static/index.
 ## Example code (RPi Pico)
 See `example.py` that allows you to control the internal LED via browser.
 
-## Links
+## Related links
 * https://projects.raspberrypi.org/en/projects/get-started-pico-w
+
+## Similar projects
+* Very fast & lightweight web server written in C++ - https://github.com/krzmaz/pico-w-webserver-example
