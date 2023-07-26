@@ -25,9 +25,15 @@ if __name__ == "__main__":
     ssid = "Your wifi"
     password = "password"
 
+    # If you want to connect to existing WiFi
     ap = network.WLAN(network.STA_IF)
     ap.active(True)
     ap.connect(ssid, password)
+
+    # If you want to create Access Point with specified ssid and password
+    # ap = network.WLAN(network.AP_IF)
+    # ap.config(essid=ssid, password=password)
+    # ap.active(True)
 
     while ap.isconnected() == False:
         print('Waiting for connection...')
