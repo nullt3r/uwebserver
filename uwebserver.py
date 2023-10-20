@@ -31,19 +31,22 @@ class UWebServer:
                 conn, addr = self.s.accept()
                 print('[INFO] Got a connection from %s' % str(addr))
 
-                # conn.settimeout(3.0)
                 request = conn.recv(self.request_size_limit)
-                # conn.settimeout(None)
                 request = str(request, 'utf-8')
 
                 response_body, content_type, response_code = self.handle_request(request)
                 response_body = str(response_body)
 
+                # Send headers first
                 conn.sendall(f'HTTP/1.1 {response_code}\r\n'.encode('utf-8'))
                 conn.sendall(f'Content-Type: {content_type}\r\n'.encode('utf-8'))
-                conn.sendall('Connection: close\r\n'.encode('utf-8'))
-                conn.sendall(f'Content-Length: {len(response_body)}\r\n\r\n'.encode('utf-8'))
+                conn.sendall(f'Content-Length: {len(response_body)}\r\n'.encode('utf-8'))
+                conn.sendall('Connection: close\r\n\r\n'.encode('utf-8'))
+
+                # Send the response body
                 conn.sendall(response_body.encode('utf-8'))
+
+                # Explicitly close the connection
                 conn.close()
 
             except OSError as e:
